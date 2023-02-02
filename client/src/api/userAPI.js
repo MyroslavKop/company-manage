@@ -25,7 +25,7 @@ export const getUser = async () => {
 };
 
 export const getAllUsers = async () => {
-  const { data } = await $authHost.get("api/user/all_users");
+  const { data } = await $authHost.get("api/user/all-users");
   return data;
 };
 

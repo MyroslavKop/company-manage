@@ -5,6 +5,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
+import PropTypes from "prop-types";
 import LinkButton from "./common/LinkButton";
 
 const tableHeader = {
@@ -12,7 +13,6 @@ const tableHeader = {
   fontSize: 16,
 };
 
-// eslint-disable-next-line react/prop-types
 const CompaniesTable = ({ data }) => {
   return (
     <TableContainer component={Paper}>
@@ -37,7 +37,6 @@ const CompaniesTable = ({ data }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* eslint-disable-next-line react/prop-types */}
           {data.map(({ id, name, address, numberOfEmployees }, index) => (
             <TableRow
               key={id}
@@ -58,6 +57,18 @@ const CompaniesTable = ({ data }) => {
       </Table>
     </TableContainer>
   );
+};
+
+CompaniesTable.propTypes = {
+  data: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      name: PropTypes.string,
+      address: PropTypes.string,
+      email: PropTypes.string,
+      numberOfEmployees: PropTypes.number,
+    })
+  ).isRequired,
 };
 
 export default CompaniesTable;

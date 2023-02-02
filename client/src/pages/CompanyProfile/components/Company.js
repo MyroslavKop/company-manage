@@ -60,7 +60,6 @@ const Company = ({ data, onClick }) => {
           <Typography color="#797c81">{data.type}</Typography>
         </Box>
       </Box>
-
       <Typography
         variant="h2"
         fontSize={30}

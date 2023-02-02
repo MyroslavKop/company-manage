@@ -18,7 +18,7 @@ import { registration } from "../../../api/userAPI";
 const columnFlex = {
   display: "flex",
   flexDirection: "column",
-  gap: 3,
+  gap: "15px",
 };
 
 const UserRegistrationForm = () => {
@@ -65,18 +65,26 @@ const UserRegistrationForm = () => {
       <Box sx={{ display: "flex", gap: 2 }}>
         <Box sx={columnFlex}>
           <FormSelect control={control} />
-          <FormField name="email" type="text" control={control} label="Email" />
+          <FormField
+            name="email"
+            type="text"
+            control={control}
+            label="Email*"
+            placeholder="Enter your email"
+          />
           <FormField
             name="password"
             type="password"
             control={control}
-            label="Password"
+            label="Password*"
+            placeholder="Enter your password"
           />
           <FormField
             name="nickName"
             type="text"
             control={control}
-            label="Nickname"
+            label="Nickname*"
+            placeholder="Enter your nickname"
           />
         </Box>
         <Box sx={columnFlex}>
@@ -84,25 +92,29 @@ const UserRegistrationForm = () => {
             name="firstName"
             type="text"
             control={control}
-            label="First name"
+            label="First name*"
+            placeholder="Enter your first name"
           />
           <FormField
             name="lastName"
             type="text"
             control={control}
-            label="Last name"
+            label="Last name*"
+            placeholder="Enter your last name"
           />
           <FormField
             name="phoneNumber"
             type="tel"
             control={control}
-            label="Phone number"
+            label="Phone number*"
+            placeholder="Enter phone number"
           />
           <FormField
             name="position"
             type="text"
             control={control}
-            label="Position"
+            label="Position*"
+            placeholder="Enter your position"
           />
         </Box>
         <Box sx={columnFlex}>
@@ -110,9 +122,10 @@ const UserRegistrationForm = () => {
             name="description"
             type="text"
             control={control}
-            label="Description"
+            label="Description*"
+            placeholder="Write about yourself"
             multiline
-            rows={11.4}
+            rows={13.2}
           />
         </Box>
       </Box>

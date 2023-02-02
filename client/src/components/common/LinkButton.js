@@ -3,6 +3,7 @@ import { Link as RouterLink } from "react-router-dom";
 import Button from "@mui/material/Button";
 
 const LinkButton = ({
+  margin,
   children,
   router,
   width,
@@ -23,6 +24,7 @@ const LinkButton = ({
         fontSize: { fontSize },
         p: { padding },
         border: { border },
+        margin: { margin },
 
         "&:hover": {
           backgroundColor: "#1871ca",
@@ -54,6 +56,7 @@ LinkButton.propTypes = {
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
   onClick: PropTypes.func,
+  margin: PropTypes.string,
 };
 
 export default LinkButton;

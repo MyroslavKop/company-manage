@@ -2,12 +2,21 @@ import PropTypes from "prop-types";
 import { Controller } from "react-hook-form";
 import TextField from "@mui/material/TextField";
 
-const FormField = ({ control, name, label, type, multiline, rows }) => {
+const FormField = ({
+  control,
+  name,
+  label,
+  type,
+  multiline,
+  rows,
+  placeholder,
+  value,
+}) => {
   return (
     <Controller
       control={control}
       name={name}
-      defaultValue=""
+      defaultValue={value}
       render={({ field, fieldState: { error } }) => (
         <TextField
           /* eslint-disable-next-line react/jsx-props-no-spreading */
@@ -18,7 +27,8 @@ const FormField = ({ control, name, label, type, multiline, rows }) => {
           rows={rows}
           variant="outlined"
           error={!!error}
-          helperText={error?.message}
+          helperText={error?.message || " "}
+          placeholder={placeholder}
         />
       )}
     />
@@ -32,6 +42,12 @@ FormField.propTypes = {
   name: PropTypes.string.isRequired,
   label: PropTypes.string.isRequired,
   type: PropTypes.string.isRequired,
+  placeholder: PropTypes.string,
+  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+};
+
+FormField.defaultProps = {
+  value: "",
 };
 
 export default FormField;

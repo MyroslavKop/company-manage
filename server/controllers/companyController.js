@@ -56,6 +56,19 @@ class CompanyController {
     const allCompanies = await Company.findAll();
     return res.json(allCompanies);
   }
+
+  async updateCompany(req, res) {
+    const { id } = req.params;
+    Company.findByPk(id).then((company) => {
+      company.address = req.body.address;
+      company.numberOfEmployees = req.body.numberOfEmployees;
+      company.type = req.body.type;
+      company.serviceOfActivity = req.body.serviceOfActivity;
+      company.description = req.body.description;
+      return company.save();
+    });
+    return res.json("Success");
+  }
 }
 
 module.exports = new CompanyController();

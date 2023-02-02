@@ -16,7 +16,7 @@ import { createCompany } from "../../../api/companyAPI";
 const columnFlex = {
   display: "flex",
   flexDirection: "column",
-  gap: 3,
+  gap: "10px",
 };
 
 const CreateCompanyForm = () => {
@@ -62,35 +62,51 @@ const CreateCompanyForm = () => {
       )}
       <Box sx={{ display: "flex", gap: 2 }}>
         <Box sx={columnFlex}>
-          <FormField name="name" type="text" control={control} label="Name" />
+          <FormField
+            name="name"
+            type="text"
+            control={control}
+            label="Name*"
+            placeholder="Enter company name"
+          />
           <FormField
             name="address"
             type="text"
             control={control}
-            label="Address"
+            label="Address*"
+            placeholder="Enter company address"
           />
           <FormField
             name="serviceOfActivity"
             type="text"
             control={control}
-            label="Service of activity"
+            label="Service of activity*"
+            placeholder="Enter service of activity"
           />
           <FormField
             name="numberOfEmployees"
             type="number"
             control={control}
-            label="Number of employees"
+            label="Number of employees*"
+            placeholder="Enter the number of employees"
           />
         </Box>
         <Box sx={columnFlex}>
-          <FormField name="type" type="text" control={control} label="Type" />
+          <FormField
+            name="type"
+            type="text"
+            control={control}
+            label="Type*"
+            placeholder="Type of your company"
+          />
           <FormField
             name="description"
             type="text"
             control={control}
-            label="Description"
+            label="Description*"
+            placeholder="Describe your company"
             multiline
-            rows={7.9}
+            rows={8.7}
           />
         </Box>
       </Box>

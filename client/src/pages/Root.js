@@ -10,8 +10,9 @@ const Root = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(checkToken());
-    setLoading(false);
+    dispatch(checkToken()).finally(() => {
+      setLoading(false);
+    });
   }, [dispatch]);
 
   if (isLoading) {

@@ -19,7 +19,7 @@ const FormSelect = ({ control }) => {
         control={control}
         render={({ field }) => (
           // eslint-disable-next-line react/jsx-props-no-spreading
-          <Select {...field}>
+          <Select {...field} sx={{ marginBottom: "23px" }}>
             <MenuItem value="USER">USER</MenuItem>
             <MenuItem value="ADMIN">ADMIN</MenuItem>
           </Select>

@@ -9,7 +9,7 @@ router.post("/login", userController.login);
 router.get("/auth", authMiddleware, userController.check);
 router.get("/profile", authMiddleware, userController.getUserProfile);
 router.get(
-  "/all_users",
+  "/all-users",
   checkRoleMiddleware("ADMIN"),
   userController.getAllUsers
 );

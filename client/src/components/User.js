@@ -1,7 +1,7 @@
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import PropTypes from "prop-types";
-import defaultAvatar from "../img/defaultAvatar.png";
+import defaultAvatar from "../assets/img/default-avatar.png";
 
 const User = ({ data, title }) => {
   return (

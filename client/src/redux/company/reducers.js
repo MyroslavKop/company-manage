@@ -4,6 +4,7 @@ const initialState = {
   isLoading: true,
   data: {},
   error: "",
+  edit: false,
 };
 
 // eslint-disable-next-line default-param-last

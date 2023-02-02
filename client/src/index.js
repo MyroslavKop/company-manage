@@ -9,7 +9,7 @@ import Home from "./pages/Home";
 import UserRegistration from "./pages/UserRegistration";
 import Login from "./pages/Login";
 import UserProfile from "./pages/UserProfile";
-import CompanyProfile from "./pages/CompanyProfile";
+import CompanyProfile from "./pages/CompanyProfile/CompanyProfile";
 import UserCompanies from "./pages/UserCompanies";
 import CreateCompany from "./pages/CreateCompany";
 import AllCompanies from "./pages/AllCompanies";
@@ -40,24 +40,24 @@ const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
-        path: "all_users",
+        path: "all-users",
         element: <AllUsers />,
       },
       {
-        path: "all_users/:userId",
+        path: "all-users/:userId",
         element: <UserIdProfile />,
       },
       {
-        path: "admin_profile",
+        path: "admin-profile",
         element: <AdminProfile />,
       },
 
       {
-        path: "all_companies",
+        path: "all-companies",
         element: <AllCompanies />,
       },
       {
-        path: "all_companies/:companyId",
+        path: "all-companies/:companyId",
         element: <CompanyProfile />,
       },
       {
@@ -69,7 +69,7 @@ const router = createBrowserRouter([
         element: <CompanyProfile />,
       },
       {
-        path: "create_company",
+        path: "create-company",
         element: <CreateCompany />,
       },
     ],

@@ -24,7 +24,7 @@ const UserCompanies = () => {
         <Typography variant="h2" fontSize={30}>
           List of your companies
         </Typography>
-        <LinkButton router="/create_company">Create company</LinkButton>
+        <LinkButton router="/create-company">Create company</LinkButton>
       </Box>
       {isLoading ? <Spinner /> : <CompaniesTable data={companies} />}
     </Box>
