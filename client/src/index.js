@@ -15,13 +15,14 @@ import CreateCompany from "./pages/CreateCompany";
 import AllCompanies from "./pages/AllCompanies";
 import AllUsers from "./pages/AllUsers";
 import AdminProfile from "./pages/AdminProfile";
-import UserIdProfile from "./pages/UserIdProfile";
+import UserIdProfile from "./pages/UserIdProfile/UserIdProfile";
+import NotFound from "./pages/NotFound";
 
 const router = createBrowserRouter([
   {
     path: "/",
     element: <Root />,
-    // errorElement: <NotFound/>,
+    errorElement: <NotFound />,
     children: [
       {
         path: "",
@@ -40,27 +41,6 @@ const router = createBrowserRouter([
         element: <UserProfile />,
       },
       {
-        path: "all-users",
-        element: <AllUsers />,
-      },
-      {
-        path: "all-users/:userId",
-        element: <UserIdProfile />,
-      },
-      {
-        path: "admin-profile",
-        element: <AdminProfile />,
-      },
-
-      {
-        path: "all-companies",
-        element: <AllCompanies />,
-      },
-      {
-        path: "all-companies/:companyId",
-        element: <CompanyProfile />,
-      },
-      {
         path: "companies",
         element: <UserCompanies />,
       },
@@ -71,6 +51,27 @@ const router = createBrowserRouter([
       {
         path: "create-company",
         element: <CreateCompany />,
+      },
+      {
+        path: "/admin/all-users",
+        element: <AllUsers />,
+      },
+      {
+        path: "/admin/all-users/:userId",
+        element: <UserIdProfile />,
+      },
+      {
+        path: "/admin/admin-profile",
+        element: <AdminProfile />,
+      },
+
+      {
+        path: "/admin/all-companies",
+        element: <AllCompanies />,
+      },
+      {
+        path: "admin/all-companies/:companyId",
+        element: <CompanyProfile />,
       },
     ],
   },

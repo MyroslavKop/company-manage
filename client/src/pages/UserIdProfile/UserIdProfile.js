@@ -1,40 +1,32 @@
 import { useEffect, useState } from "react";
-import { useParams, useNavigate } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { useParams, useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
-import Company from "./components/Company";
-import LinkButton from "../../components/common/LinkButton";
-import { deleteCompany } from "../../api/companyAPI";
-import loadCompanyProfile from "../../redux/company/actions";
+import User from "../../components/User";
 import Spinner from "../../components/common/Spinner";
-import EditCompany from "./components/EditCompany";
+import LinkButton from "../../components/common/LinkButton";
+import { loadUserProfileById } from "../../redux/user/actions";
+import EditUserIdProfile from "./components/EditUserIdProfile";
 
-const CompanyProfile = () => {
+const UserIdProfile = () => {
   const [edit, setEdit] = useState(false);
   const dispatch = useDispatch();
-  const { data: company, isLoading } = useSelector((state) => state.company);
+  const { data: user, isLoading } = useSelector((state) => state.user);
   const navigate = useNavigate();
-  const { companyId } = useParams();
+  const { userId } = useParams();
 
   useEffect(() => {
-    dispatch(loadCompanyProfile(companyId));
-  }, [companyId, dispatch, edit]);
-
-  const handleDelete = async () => {
-    navigate(-1);
-    await deleteCompany(companyId);
-  };
-
-  const goBack = () => {
-    navigate(-1);
-  };
+    dispatch(loadUserProfileById(userId));
+  }, [dispatch, userId, edit]);
 
   const handleEdit = () => {
     setEdit(true);
   };
+
+  const goBack = () => navigate(-1);
 
   if (isLoading) return <Spinner />;
 
@@ -55,17 +47,17 @@ const CompanyProfile = () => {
             size="large"
             endIcon={<EditIcon />}
           >
-            Edit company
+            Edit profile
           </Button>
         )}
       </Box>
       {!edit ? (
-        <Company data={company} onClick={handleDelete} />
+        <User data={user} />
       ) : (
-        <EditCompany data={company} setEdit={setEdit} />
+        <EditUserIdProfile data={user} setEdit={setEdit} />
       )}
     </Box>
   );
 };
 
-export default CompanyProfile;
+export default UserIdProfile;

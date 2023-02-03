@@ -1,10 +1,10 @@
 import { LOADING, RECEIVED, FAILED } from "./actionTypes";
-import { getAllCompanies, getAllUsersCompanies } from "../../api/companyAPI";
+import { getAllCompanies, getAllUserCompanies } from "../../api/companyAPI";
 
 export const loadUsersCompanies = () => async (dispatch) => {
   try {
     dispatch({ type: LOADING });
-    const data = await getAllUsersCompanies();
+    const data = await getAllUserCompanies();
     dispatch({ type: RECEIVED, payload: data });
   } catch (error) {
     dispatch({ type: FAILED, payload: error });

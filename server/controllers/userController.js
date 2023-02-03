@@ -3,8 +3,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const { User } = require("../models/models");
 
-const generateJwt = (id, email, role, firstName) => {
-  return jwt.sign({ id, email, role, firstName }, process.env.SECRET_KEY, {
+const generateJwt = (id, email, role) => {
+  return jwt.sign({ id, email, role }, process.env.SECRET_KEY, {
     expiresIn: "24h",
   });
 };
@@ -38,7 +38,7 @@ class UserController {
       position,
       role,
     });
-    const token = generateJwt(user.id, user.email, user.role, user.firstName);
+    const token = generateJwt(user.id, user.email, user.role);
     return res.json({ token });
   }
 
@@ -52,17 +52,12 @@ class UserController {
     if (!comparePassword) {
       return next(ApiError.badRequest("Incorrect email or password"));
     }
-    const token = generateJwt(user.id, user.email, user.role, user.firstName);
+    const token = generateJwt(user.id, user.email, user.role);
     return res.json({ token });
   }
 
   async check(req, res) {
-    const token = generateJwt(
-      req.user.id,
-      req.user.email,
-      req.user.role,
-      req.user.firstName
-    );
+    const token = generateJwt(req.user.id, req.user.email, req.user.role);
     return res.json({ token });
   }
 
@@ -82,6 +77,20 @@ class UserController {
       where: { id },
     });
     return res.json(user);
+  }
+
+  async editUserById(req, res) {
+    const { id } = req.params;
+    User.findByPk(id).then((user) => {
+      user.phoneNumber = req.body.phoneNumber;
+      user.lastName = req.body.lastName;
+      user.firstName = req.body.firstName;
+      user.nickName = req.body.nickName;
+      user.description = req.body.description;
+      user.position = req.body.position;
+      return user.save();
+    });
+    return res.json("Success");
   }
 }
 

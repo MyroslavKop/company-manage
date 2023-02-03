@@ -7,6 +7,7 @@ export const authUser = (data) => async (dispatch) => {
     dispatch({ type: AUTH_SUCCESS });
   } catch (error) {
     dispatch({ type: AUTH_FAILED, payload: error.response.data.message });
+    throw new Error(error);
   }
 };
 

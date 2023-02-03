@@ -92,15 +92,15 @@ const UserRegistrationForm = () => {
             name="firstName"
             type="text"
             control={control}
-            label="First name*"
-            placeholder="Enter your first name"
+            label="Firstname*"
+            placeholder="Enter your firstname"
           />
           <FormField
             name="lastName"
             type="text"
             control={control}
-            label="Last name*"
-            placeholder="Enter your last name"
+            label="Lastname*"
+            placeholder="Enter your lastname"
           />
           <FormField
             name="phoneNumber"

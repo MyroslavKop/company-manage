@@ -29,7 +29,7 @@ class CompanyController {
     return res.json(company);
   }
 
-  async getUsersCompanies(req, res) {
+  async getUserCompanies(req, res) {
     const allCompanies = await Company.findAll({
       where: { userId: req.user.id },
     });
@@ -57,7 +57,7 @@ class CompanyController {
     return res.json(allCompanies);
   }
 
-  async updateCompany(req, res) {
+  async editCompany(req, res) {
     const { id } = req.params;
     Company.findByPk(id).then((company) => {
       company.address = req.body.address;

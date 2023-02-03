@@ -48,17 +48,21 @@ const PositionedMenu = () => {
         <MenuItem
           onClick={handleClose}
           component={RouterLink}
-          to="admin-profile"
+          to="/admin/admin-profile"
         >
           Admin profile
         </MenuItem>
-        <MenuItem onClick={handleClose} component={RouterLink} to="all-users">
+        <MenuItem
+          onClick={handleClose}
+          component={RouterLink}
+          to="/admin/all-users"
+        >
           All users
         </MenuItem>
         <MenuItem
           onClick={handleClose}
           component={RouterLink}
-          to="all-companies"
+          to="/admin/all-companies"
         >
           All companies
         </MenuItem>

@@ -25,15 +25,12 @@ const LinkButton = ({
         p: { padding },
         border: { border },
         margin: { margin },
-
-        "&:hover": {
-          backgroundColor: "#1871ca",
-        },
       }}
       component={RouterLink}
       to={router}
       endIcon={icon}
       onClick={onClick}
+      variant="contained"
     >
       {children}
     </Button>

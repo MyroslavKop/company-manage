@@ -1,4 +1,4 @@
-import { Link as RouterLink } from "react-router-dom";
+import { Link as RouterLink, useNavigate } from "react-router-dom";
 import AppBar from "@mui/material/AppBar";
 import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
@@ -11,11 +11,13 @@ import { logout } from "../redux/auth/actions";
 
 const Navbar = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
   const { isAuth } = useSelector((state) => state.auth);
 
   const handleLogout = () => {
     dispatch(logout());
     localStorage.removeItem("token");
+    navigate("/");
   };
 
   return (
@@ -41,9 +43,17 @@ const Navbar = () => {
                   My profile
                 </Button>
               </Box>
-              <LinkButton border="1px solid white" onClick={handleLogout}>
+              <Button
+                variant="contained"
+                onClick={handleLogout}
+                sx={{
+                  color: "white",
+                  backgroundColor: "#1976d2",
+                  border: "1px solid white",
+                }}
+              >
                 LOGOUT
-              </LinkButton>
+              </Button>
             </Box>
           ) : (
             <Box sx={{ display: "flex", gap: 4 }}>

@@ -8,15 +8,15 @@ router.post("/create-company", authMiddleware, companyController.createCompany);
 router.get(
   "/get-users-companies",
   authMiddleware,
-  companyController.getUsersCompanies
+  companyController.getUserCompanies
 );
 router.get(
   "/get-all-companies",
   checkRoleMiddleware("ADMIN"),
   companyController.getAllCompanies
 );
-router.delete("/:id", companyController.deleteCompany);
-router.get("/:id", companyController.getCompanyById);
-router.post("/:id", companyController.updateCompany);
+router.delete("/:id", authMiddleware, companyController.deleteCompany);
+router.get("/:id", authMiddleware, companyController.getCompanyById);
+router.post("/:id", authMiddleware, companyController.editCompany);
 
 module.exports = router;

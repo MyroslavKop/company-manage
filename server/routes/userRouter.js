@@ -8,11 +8,13 @@ router.post("/registration", userController.registration);
 router.post("/login", userController.login);
 router.get("/auth", authMiddleware, userController.check);
 router.get("/profile", authMiddleware, userController.getUserProfile);
+
 router.get(
   "/all-users",
   checkRoleMiddleware("ADMIN"),
   userController.getAllUsers
 );
-router.get("/:id", userController.getUserById);
+router.get("/:id", authMiddleware, userController.getUserById);
+router.post("/:id", authMiddleware, userController.editUserById);
 
 module.exports = router;

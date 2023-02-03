@@ -19,8 +19,8 @@ const LoginForm = () => {
     resolver: yupResolver(schema),
   });
 
-  const handleLogin = (data) => {
-    dispatch(authUser(data));
+  const handleLogin = async (data) => {
+    await dispatch(authUser(data));
     navigate("/");
   };
 

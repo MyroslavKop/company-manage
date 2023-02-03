@@ -30,6 +30,10 @@ export const getAllUsers = async () => {
 };
 
 export const getUserById = async (userId) => {
-  const { data } = await $host.get(`api/user/${userId}`);
+  const { data } = await $authHost.get(`api/user/${userId}`);
   return data;
+};
+
+export const editUserById = async (userId, user) => {
+  return $authHost.post(`api/user/${userId}`, user);
 };
