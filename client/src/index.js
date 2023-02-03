@@ -8,7 +8,7 @@ import Root from "./pages/Root";
 import Home from "./pages/Home";
 import UserRegistration from "./pages/UserRegistration";
 import Login from "./pages/Login";
-import UserProfile from "./pages/UserProfile";
+import UserProfile from "./pages/UserProfile/UserProfile";
 import CompanyProfile from "./pages/CompanyProfile/CompanyProfile";
 import UserCompanies from "./pages/UserCompanies";
 import CreateCompany from "./pages/CreateCompany";
@@ -17,6 +17,8 @@ import AllUsers from "./pages/AllUsers";
 import AdminProfile from "./pages/AdminProfile";
 import UserIdProfile from "./pages/UserIdProfile/UserIdProfile";
 import NotFound from "./pages/NotFound";
+import RequireAuth from "./hoc/RequireAuth";
+import RequireAdminRole from "./hoc/RequireAdminRole";
 
 const router = createBrowserRouter([
   {
@@ -38,40 +40,76 @@ const router = createBrowserRouter([
       },
       {
         path: "profile",
-        element: <UserProfile />,
+        element: (
+          <RequireAuth>
+            <UserProfile />
+          </RequireAuth>
+        ),
       },
       {
         path: "companies",
-        element: <UserCompanies />,
+        element: (
+          <RequireAuth>
+            <UserCompanies />
+          </RequireAuth>
+        ),
       },
       {
         path: "companies/:companyId",
-        element: <CompanyProfile />,
+        element: (
+          <RequireAuth>
+            <CompanyProfile />
+          </RequireAuth>
+        ),
       },
       {
         path: "create-company",
-        element: <CreateCompany />,
+        element: (
+          <RequireAuth>
+            <CreateCompany />
+          </RequireAuth>
+        ),
       },
       {
         path: "/admin/all-users",
-        element: <AllUsers />,
+        element: (
+          <RequireAdminRole>
+            <AllUsers />
+          </RequireAdminRole>
+        ),
       },
       {
         path: "/admin/all-users/:userId",
-        element: <UserIdProfile />,
+        element: (
+          <RequireAdminRole>
+            <UserIdProfile />
+          </RequireAdminRole>
+        ),
       },
       {
         path: "/admin/admin-profile",
-        element: <AdminProfile />,
+        element: (
+          <RequireAdminRole>
+            <AdminProfile />
+          </RequireAdminRole>
+        ),
       },
 
       {
         path: "/admin/all-companies",
-        element: <AllCompanies />,
+        element: (
+          <RequireAdminRole>
+            <AllCompanies />
+          </RequireAdminRole>
+        ),
       },
       {
         path: "admin/all-companies/:companyId",
-        element: <CompanyProfile />,
+        element: (
+          <RequireAdminRole>
+            <CompanyProfile />
+          </RequireAdminRole>
+        ),
       },
     ],
   },

@@ -24,6 +24,10 @@ export const getUser = async () => {
   return data;
 };
 
+export const editUser = async (data) => {
+  return $authHost.post("api/user/edit-profile", data);
+};
+
 export const getAllUsers = async () => {
   const { data } = await $authHost.get("api/user/all-users");
   return data;

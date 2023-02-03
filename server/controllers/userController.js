@@ -9,6 +9,18 @@ const generateJwt = (id, email, role) => {
   });
 };
 
+const editUser = (id, req) => {
+  User.findByPk(id).then((user) => {
+    user.phoneNumber = req.body.phoneNumber;
+    user.lastName = req.body.lastName;
+    user.firstName = req.body.firstName;
+    user.nickName = req.body.nickName;
+    user.description = req.body.description;
+    user.position = req.body.position;
+    return user.save();
+  });
+};
+
 class UserController {
   async registration(req, res, next) {
     const {
@@ -66,6 +78,12 @@ class UserController {
     return res.json(user);
   }
 
+  async editUserProfile(req, res) {
+    const { id } = req.user;
+    editUser(id, req);
+    return res.json("Success");
+  }
+
   async getAllUsers(req, res) {
     const AllUsers = await User.findAll();
     return res.json(AllUsers);
@@ -81,15 +99,7 @@ class UserController {
 
   async editUserById(req, res) {
     const { id } = req.params;
-    User.findByPk(id).then((user) => {
-      user.phoneNumber = req.body.phoneNumber;
-      user.lastName = req.body.lastName;
-      user.firstName = req.body.firstName;
-      user.nickName = req.body.nickName;
-      user.description = req.body.description;
-      user.position = req.body.position;
-      return user.save();
-    });
+    editUser(id, req);
     return res.json("Success");
   }
 }
