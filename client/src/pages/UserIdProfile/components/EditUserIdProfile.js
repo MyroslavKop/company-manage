@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import FormField from "../../../components/formComponents/FormField";
 import { editUserById } from "../../../api/userAPI";
-import { schema } from "../../../formsValidationRules/authValidation";
+import { schema } from "../../../formsValidationRules/editUserValidation";
 
 const columnFlex = {
   display: "flex",
