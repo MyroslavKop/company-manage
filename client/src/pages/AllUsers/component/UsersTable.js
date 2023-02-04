@@ -60,7 +60,7 @@ const UsersTable = ({ data }) => {
 };
 
 UsersTable.propTypes = {
-  data: PropTypes.objectOf(
+  data: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.number,
       firstName: PropTypes.string,
