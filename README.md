@@ -15,5 +15,6 @@ Back-end side
 - Express
 
 <h2>To run the application, use the commands</h2>
+
 - <b>npm start</b> - client start
 - <b>npm run dev</b> - server start
