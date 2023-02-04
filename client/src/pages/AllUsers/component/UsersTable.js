@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -12,7 +13,6 @@ const tableHeader = {
   fontSize: 16,
 };
 
-// eslint-disable-next-line react/prop-types
 const UsersTable = ({ data }) => {
   return (
     <TableContainer component={Paper}>
@@ -37,7 +37,6 @@ const UsersTable = ({ data }) => {
           </TableRow>
         </TableHead>
         <TableBody>
-          {/* eslint-disable-next-line react/prop-types */}
           {data.map(({ id, firstName, lastName, email }, index) => (
             <TableRow
               key={id}
@@ -58,6 +57,17 @@ const UsersTable = ({ data }) => {
       </Table>
     </TableContainer>
   );
+};
+
+UsersTable.propTypes = {
+  data: PropTypes.objectOf(
+    PropTypes.shape({
+      id: PropTypes.number,
+      firstName: PropTypes.string,
+      lastName: PropTypes.string,
+      email: PropTypes.string,
+    })
+  ).isRequired,
 };
 
 export default UsersTable;

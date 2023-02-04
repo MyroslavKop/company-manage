@@ -3,22 +3,22 @@ import ReactDOM from "react-dom/client";
 import "./index.css";
 import { Provider } from "react-redux";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import RequireAuth from "./components/RequireAuth";
+import RequireAdminRole from "./components/RequireAdminRole";
 import store from "./redux/store";
 import Root from "./pages/Root";
 import Home from "./pages/Home";
 import UserRegistration from "./pages/UserRegistration";
 import Login from "./pages/Login";
-import UserProfile from "./pages/UserProfile/UserProfile";
+import UserProfile from "./pages/UserProfile";
 import CompanyProfile from "./pages/CompanyProfile/CompanyProfile";
 import UserCompanies from "./pages/UserCompanies";
 import CreateCompany from "./pages/CreateCompany";
 import AllCompanies from "./pages/AllCompanies";
 import AllUsers from "./pages/AllUsers";
 import AdminProfile from "./pages/AdminProfile";
-import UserIdProfile from "./pages/UserIdProfile/UserIdProfile";
+import UserIdProfile from "./pages/UserIdProfile";
 import NotFound from "./pages/NotFound";
-import RequireAuth from "./hoc/RequireAuth";
-import RequireAdminRole from "./hoc/RequireAdminRole";
 
 const router = createBrowserRouter([
   {

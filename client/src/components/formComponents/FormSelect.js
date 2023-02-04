@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
+import { Controller } from "react-hook-form";
 import { FormControl, InputLabel, Select } from "@mui/material";
 import MenuItem from "@mui/material/MenuItem";
-import { Controller } from "react-hook-form";
 
 const FormSelect = ({ control }) => {
   return (

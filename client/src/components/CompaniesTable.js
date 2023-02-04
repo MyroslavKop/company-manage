@@ -1,3 +1,4 @@
+import PropTypes from "prop-types";
 import Paper from "@mui/material/Paper";
 import Table from "@mui/material/Table";
 import TableHead from "@mui/material/TableHead";
@@ -5,7 +6,6 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import TableContainer from "@mui/material/TableContainer";
-import PropTypes from "prop-types";
 import LinkButton from "./common/LinkButton";
 
 const tableHeader = {
@@ -60,7 +60,7 @@ const CompaniesTable = ({ data }) => {
 };
 
 CompaniesTable.propTypes = {
-  data: PropTypes.arrayOf(
+  data: PropTypes.objectOf(
     PropTypes.shape({
       id: PropTypes.number,
       name: PropTypes.string,

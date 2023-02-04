@@ -1,20 +1,23 @@
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import Box from "@mui/material/Box";
 import EditIcon from "@mui/icons-material/Edit";
 import Button from "@mui/material/Button";
-import User from "../../components/User";
-import Spinner from "../../components/common/Spinner";
-import { loadUserProfile } from "../../redux/user/actions";
-import EditUserProfile from "./components/EditUserProfile";
+import User from "../components/User";
+import Spinner from "../components/common/Spinner";
+import { loadUserProfile } from "../redux/user/actions";
+import EditUser from "../components/EditUser";
+import { editUser } from "../api/userAPI";
+import useEdit from "../hooks/useEdit";
 
 const UserProfile = () => {
-  const [edit, setEdit] = useState(false);
+  const { edit, openEdit, closeEdit } = useEdit();
   const dispatch = useDispatch();
   const { data: user, isLoading } = useSelector((state) => state.user);
 
-  const handleEdit = () => {
-    setEdit(true);
+  const handleEdit = async (result) => {
+    await editUser(result);
+    closeEdit();
   };
 
   useEffect(() => {
@@ -29,7 +32,7 @@ const UserProfile = () => {
     <Box sx={{ p: 2 }}>
       {!edit && (
         <Button
-          onClick={handleEdit}
+          onClick={openEdit}
           variant="contained"
           size="large"
           endIcon={<EditIcon />}
@@ -40,7 +43,7 @@ const UserProfile = () => {
       {!edit ? (
         <User data={user} />
       ) : (
-        <EditUserProfile data={user} setEdit={setEdit} />
+        <EditUser handleEdit={handleEdit} data={user} />
       )}
     </Box>
   );

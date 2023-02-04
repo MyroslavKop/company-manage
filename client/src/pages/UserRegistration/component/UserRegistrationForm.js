@@ -1,11 +1,9 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
-
+import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import EmailIcon from "@mui/icons-material/Email";
-import { useNavigate } from "react-router-dom";
 import {
   defaultValues,
   schema,
@@ -14,6 +12,7 @@ import FormField from "../../../components/formComponents/FormField";
 import FormButtons from "../../../components/formComponents/FormButtons";
 import FormSelect from "../../../components/formComponents/FormSelect";
 import { registration } from "../../../api/userAPI";
+import useError from "../../../hooks/useError";
 
 const columnFlex = {
   display: "flex",
@@ -22,9 +21,8 @@ const columnFlex = {
 };
 
 const UserRegistrationForm = () => {
-  const [error, setError] = useState(null);
+  const { error, closeError, catchError } = useError();
   const navigate = useNavigate();
-
   const { handleSubmit, control, reset } = useForm({
     resolver: yupResolver(schema),
   });
@@ -32,19 +30,16 @@ const UserRegistrationForm = () => {
   const handleRegister = async (result) => {
     try {
       await registration(result);
-      setError(null);
       navigate("/signin");
     } catch (err) {
-      setError(err.response.data.message);
+      catchError(err.response.data.message);
     }
   };
 
   const handleReset = () => {
     reset(defaultValues);
-    setError(null);
+    closeError();
   };
-
-  const handleClose = () => setError(null);
 
   return (
     <form
@@ -58,7 +53,7 @@ const UserRegistrationForm = () => {
       onSubmit={handleSubmit(handleRegister)}
     >
       {error && (
-        <Alert onClose={handleClose} severity="error" sx={{ mb: 3 }}>
+        <Alert onClose={closeError} severity="error" sx={{ mb: 3 }}>
           {error}
         </Alert>
       )}

@@ -17,6 +17,6 @@ router.get(
 );
 router.delete("/:id", authMiddleware, companyController.deleteCompany);
 router.get("/:id", authMiddleware, companyController.getCompanyById);
-router.post("/:id", authMiddleware, companyController.editCompany);
+router.put("/:id", authMiddleware, companyController.editCompany);
 
 module.exports = router;

@@ -17,7 +17,7 @@ const Company = ({ data, onClick }) => {
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
-        padding: "80px",
+        padding: "50px",
       }}
     >
       <Box sx={{ textAlign: "center" }}>
@@ -70,7 +70,7 @@ const Company = ({ data, onClick }) => {
       >
         ABOUT US
       </Typography>
-      <Typography variant="p" fontSize={20}>
+      <Typography variant="p" fontSize={20} textAlign="center" maxWidth={600}>
         {data.description}
       </Typography>
       <IconButton size="large" color="error" sx={{ mt: 5 }} onClick={onClick}>

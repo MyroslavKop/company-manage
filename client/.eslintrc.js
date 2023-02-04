@@ -19,7 +19,8 @@ module.exports = {
     "import/prefer-default-export": "off",
     "react/function-component-definition": "off",
     "react/require-default-props": "off",
-    'camelcase': 'off',
+    "default-param-last": 0,
+    camelcase: "off",
     "prettier/prettier": [
       "error",
       {

@@ -1,6 +1,6 @@
+import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
-import PropTypes from "prop-types";
 import defaultAvatar from "../assets/img/default-avatar.png";
 
 const User = ({ data, title }) => {
@@ -12,6 +12,7 @@ const User = ({ data, title }) => {
         fontWeight="bold"
         mt={2}
         mb={10}
+        variant="h1"
       >
         {title}
       </Typography>
@@ -38,10 +39,12 @@ const User = ({ data, title }) => {
             alt="default avatar"
           />
           <Typography
-            variant="h3"
-            fontSize={30}
+            variant="h2"
+            fontSize={35}
           >{`${data.firstName} ${data.lastName}`}</Typography>
-          <Typography variant="subtitle1">{data.position}</Typography>
+          <Typography variant="p" fontSize={20}>
+            {data.position}
+          </Typography>
         </Box>
         <Box>
           <Typography
@@ -55,26 +58,26 @@ const User = ({ data, title }) => {
           </Typography>
           <Box sx={{ display: "flex", gap: "60px", pt: 3 }}>
             <Box sx={{ display: "flex", flexDirection: "column" }}>
-              <Typography variant="subtitle1" fontWeight="bold" fontSize={20}>
+              <Typography variant="h3" fontWeight="bold" fontSize={20}>
                 Email
               </Typography>
-              <Typography variant="body1" color="#797c81">
+              <Typography variant="p" color="#797c81">
                 {data.email}
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle1" fontWeight="bold" fontSize={20}>
+              <Typography variant="h3" fontWeight="bold" fontSize={20}>
                 Phone
               </Typography>
-              <Typography variant="body1" color="#797c81">
+              <Typography variant="p" color="#797c81">
                 {data.phoneNumber}
               </Typography>
             </Box>
             <Box>
-              <Typography variant="subtitle1" fontWeight="bold" fontSize={20}>
+              <Typography variant="h3" fontWeight="bold" fontSize={20}>
                 Nickname
               </Typography>
-              <Typography variant="body1" color="#797c81">
+              <Typography variant="p" color="#797c81">
                 {data.nickName}
               </Typography>
             </Box>
@@ -90,10 +93,12 @@ const User = ({ data, title }) => {
             ABOUT ME
           </Typography>
           <Box sx={{ pt: 3 }}>
-            <Typography variant="subtitle1" fontWeight="bold" fontSize={20}>
+            <Typography variant="h3" fontWeight="bold" fontSize={20}>
               Description
             </Typography>
-            <Typography variant="body1">{data.description}</Typography>
+            <Typography variant="p" fontSize={18}>
+              {data.description}
+            </Typography>
           </Box>
         </Box>
       </Box>

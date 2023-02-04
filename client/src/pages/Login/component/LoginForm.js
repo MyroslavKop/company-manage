@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
-import { useDispatch, useSelector } from "react-redux";
 import Button from "@mui/material/Button";
 import LoginIcon from "@mui/icons-material/Login";
-import { useNavigate } from "react-router-dom";
 import { authUser, closeAlert } from "../../../redux/auth/actions";
 import FormField from "../../../components/formComponents/FormField";
 import { schema } from "../../../formsValidationRules/authValidation";

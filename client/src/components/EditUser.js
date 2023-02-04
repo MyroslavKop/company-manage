@@ -1,13 +1,12 @@
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
 import PropTypes from "prop-types";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
-import { useForm } from "react-hook-form";
-import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
-import FormField from "../formComponents/FormField";
-import { schema } from "../../formsValidationRules/editUserValidation";
-import dataPropTypes from "./PropTypes";
+import FormField from "./formComponents/FormField";
+import { schema } from "../formsValidationRules/editUserValidation";
 
 const columnFlex = {
   display: "flex",
@@ -111,7 +110,14 @@ const EditUserIdProfile = ({ data, handleEdit }) => {
 };
 
 EditUserIdProfile.propTypes = {
-  data: PropTypes.shape(dataPropTypes).isRequired,
+  data: PropTypes.shape({
+    firstName: PropTypes.string,
+    lastName: PropTypes.string,
+    nickName: PropTypes.string,
+    phoneNumber: PropTypes.string,
+    position: PropTypes.string,
+    description: PropTypes.string,
+  }).isRequired,
   handleEdit: PropTypes.func.isRequired,
 };
 

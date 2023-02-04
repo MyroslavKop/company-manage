@@ -24,5 +24,5 @@ export const deleteCompany = async (companyId) => {
 };
 
 export const editCompany = async (companyId, company) => {
-  return $authHost.post(`api/company/${companyId}`, company);
+  return $authHost.put(`api/company/${companyId}`, company);
 };

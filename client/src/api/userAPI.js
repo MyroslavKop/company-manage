@@ -25,7 +25,7 @@ export const getUser = async () => {
 };
 
 export const editUser = async (data) => {
-  return $authHost.post("api/user/edit-profile", data);
+  return $authHost.put("api/user/edit-profile", data);
 };
 
 export const getAllUsers = async () => {
@@ -39,5 +39,5 @@ export const getUserById = async (userId) => {
 };
 
 export const editUserById = async (userId, user) => {
-  return $authHost.post(`api/user/${userId}`, user);
+  return $authHost.put(`api/user/${userId}`, user);
 };

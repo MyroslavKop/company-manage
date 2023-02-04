@@ -7,7 +7,6 @@ const initialState = {
   edit: false,
 };
 
-// eslint-disable-next-line default-param-last
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case LOADING: {

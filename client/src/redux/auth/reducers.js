@@ -6,7 +6,6 @@ const initialState = {
   isAuth: false,
 };
 
-// eslint-disable-next-line default-param-last
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case AUTH_SUCCESS: {

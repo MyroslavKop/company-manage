@@ -1,18 +1,20 @@
-import { useEffect, useState } from "react";
-import Box from "@mui/material/Box";
-import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
+import { useEffect } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Box from "@mui/material/Box";
+import KeyboardBackspaceIcon from "@mui/icons-material/KeyboardBackspace";
 import Button from "@mui/material/Button";
 import EditIcon from "@mui/icons-material/Edit";
-import User from "../../components/User";
-import Spinner from "../../components/common/Spinner";
-import LinkButton from "../../components/common/LinkButton";
-import { loadUserProfileById } from "../../redux/user/actions";
-import EditUserIdProfile from "./components/EditUserIdProfile";
+import User from "../components/User";
+import Spinner from "../components/common/Spinner";
+import LinkButton from "../components/common/LinkButton";
+import { loadUserProfileById } from "../redux/user/actions";
+import { editUserById } from "../api/userAPI";
+import EditUser from "../components/EditUser";
+import useEdit from "../hooks/useEdit";
 
 const UserIdProfile = () => {
-  const [edit, setEdit] = useState(false);
+  const { edit, openEdit, closeEdit } = useEdit();
   const dispatch = useDispatch();
   const { data: user, isLoading } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -22,10 +24,10 @@ const UserIdProfile = () => {
     dispatch(loadUserProfileById(userId));
   }, [dispatch, userId, edit]);
 
-  const handleEdit = () => {
-    setEdit(true);
+  const handleEdit = async (result) => {
+    await editUserById(userId, result);
+    closeEdit();
   };
-
   const goBack = () => navigate(-1);
 
   if (isLoading) return <Spinner />;
@@ -42,7 +44,7 @@ const UserIdProfile = () => {
         </LinkButton>
         {!edit && (
           <Button
-            onClick={handleEdit}
+            onClick={openEdit}
             variant="contained"
             size="large"
             endIcon={<EditIcon />}
@@ -54,7 +56,7 @@ const UserIdProfile = () => {
       {!edit ? (
         <User data={user} />
       ) : (
-        <EditUserIdProfile data={user} setEdit={setEdit} />
+        <EditUser handleEdit={handleEdit} data={user} />
       )}
     </Box>
   );

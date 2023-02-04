@@ -1,7 +1,7 @@
 import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import Typography from "@mui/material/Typography";
 import Box from "@mui/material/Box";
-import { useDispatch, useSelector } from "react-redux";
 import UsersTable from "./component/UsersTable";
 import loadAllUsers from "../../redux/users/action";
 import Spinner from "../../components/common/Spinner";

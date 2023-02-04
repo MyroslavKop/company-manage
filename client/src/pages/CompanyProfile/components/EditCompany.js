@@ -1,11 +1,11 @@
 import { useForm } from "react-hook-form";
 import { useParams } from "react-router-dom";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import PropTypes from "prop-types";
 import Button from "@mui/material/Button";
 import Box from "@mui/material/Box";
 import Typography from "@mui/material/Typography";
 import SaveAsIcon from "@mui/icons-material/SaveAs";
-import PropTypes from "prop-types";
 import FormField from "../../../components/formComponents/FormField";
 import { editCompany } from "../../../api/companyAPI";
 import { schema } from "../../../formsValidationRules/editCompanyValidation";

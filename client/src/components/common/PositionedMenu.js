@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Button from "@mui/material/Button";
+import { Link as RouterLink } from "react-router-dom";
 import jwtDecode from "jwt-decode";
+import Button from "@mui/material/Button";
 import Menu from "@mui/material/Menu";
 import MenuItem from "@mui/material/MenuItem";
-import { Link as RouterLink } from "react-router-dom";
 
 const PositionedMenu = () => {
   const user = jwtDecode(localStorage.getItem("token"));

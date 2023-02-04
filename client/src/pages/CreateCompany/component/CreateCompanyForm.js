@@ -1,10 +1,9 @@
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup/dist/yup";
+import { useNavigate } from "react-router-dom";
 import Alert from "@mui/material/Alert";
 import Box from "@mui/material/Box";
 import NoteAddIcon from "@mui/icons-material/NoteAdd";
-import { useNavigate } from "react-router-dom";
 import FormField from "../../../components/formComponents/FormField";
 import {
   defaultValues,
@@ -12,6 +11,7 @@ import {
 } from "../../../formsValidationRules/createCompanyValidation";
 import FormButtons from "../../../components/formComponents/FormButtons";
 import { createCompany } from "../../../api/companyAPI";
+import useError from "../../../hooks/useError";
 
 const columnFlex = {
   display: "flex",
@@ -20,7 +20,7 @@ const columnFlex = {
 };
 
 const CreateCompanyForm = () => {
-  const [error, setError] = useState(null);
+  const { error, closeError, catchError } = useError();
   const navigate = useNavigate();
 
   const { handleSubmit, control, reset } = useForm({
@@ -29,20 +29,17 @@ const CreateCompanyForm = () => {
 
   const handleReset = () => {
     reset(defaultValues);
-    setError(null);
+    closeError();
   };
 
   const handleCreate = async (data) => {
     try {
       await createCompany(data);
-      setError(null);
       navigate("/companies");
     } catch (err) {
-      setError(err.response.data.message);
+      catchError(err.response.data.message);
     }
   };
-
-  const handleClose = () => setError(null);
 
   return (
     <form
@@ -56,7 +53,7 @@ const CreateCompanyForm = () => {
       onSubmit={handleSubmit(handleCreate)}
     >
       {error && (
-        <Alert onClose={handleClose} severity="error" sx={{ mb: 3 }}>
+        <Alert onClose={closeError} severity="error" sx={{ mb: 3 }}>
           {error}
         </Alert>
       )}
