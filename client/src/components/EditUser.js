@@ -32,7 +32,7 @@ const EditUserIdProfile = ({ data, handleEdit }) => {
       </Typography>
       <form
         noValidate
-        name="Edit Company"
+        name="Edit User"
         onSubmit={handleSubmit(handleEdit)}
         style={{
           display: "flex",

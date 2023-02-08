@@ -1,7 +1,7 @@
 import { Outlet } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import Navbar from "../components/Navbar";
+import Navbar from "../components/Navbar/Navbar";
 import Spinner from "../components/common/Spinner";
 import { checkToken } from "../redux/auth/actions";
 

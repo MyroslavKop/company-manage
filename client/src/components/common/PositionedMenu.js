@@ -20,8 +20,7 @@ const PositionedMenu = () => {
   return (
     <div>
       <Button
-        sx={{ color: "white" }}
-        id="demo-positioned-button"
+        color="inherit"
         aria-controls={open ? "demo-positioned-menu" : undefined}
         aria-haspopup="true"
         aria-expanded={open ? "true" : undefined}

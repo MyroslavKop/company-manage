@@ -33,14 +33,14 @@ const UserIdProfile = () => {
   if (isLoading) return <Spinner />;
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: 3 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between" }}>
         <LinkButton
           padding="10px"
           onClick={goBack}
           icon={<KeyboardBackspaceIcon />}
         >
-          Back to the list
+          Back
         </LinkButton>
         {!edit && (
           <Button
@@ -49,7 +49,7 @@ const UserIdProfile = () => {
             size="large"
             endIcon={<EditIcon />}
           >
-            Edit profile
+            Edit
           </Button>
         )}
       </Box>

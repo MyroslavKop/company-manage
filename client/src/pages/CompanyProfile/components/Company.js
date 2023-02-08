@@ -17,60 +17,95 @@ const Company = ({ data, onClick }) => {
         justifyContent: "center",
         flexDirection: "column",
         alignItems: "center",
-        padding: "50px",
       }}
     >
       <Box sx={{ textAlign: "center" }}>
-        <Typography variant="h1" fontSize={70}>
+        <Typography
+          variant="h1"
+          sx={{
+            fontSize: {
+              xs: 50,
+              sm: 70,
+            },
+            mt: 5,
+          }}
+        >
           {data.name}
         </Typography>
         <Typography
           variant="h2"
-          fontSize={30}
-          borderBottom="1px solid grey"
-          mt={4}
-          mb={2}
-          letterSpacing={4}
+          sx={{
+            fontSize: {
+              xs: 25,
+              sm: 30,
+            },
+            mt: 4,
+            mb: 2,
+            letterSpacing: 4,
+            borderBottom: "1px solid black",
+          }}
         >
           INFORMATION
         </Typography>
       </Box>
       <Box
         sx={{
-          display: "flex",
+          display: "grid",
           justifyContent: "center",
-          gap: 10,
+          gap: 3,
+          gridTemplateColumns: {
+            xs: "1fr 1fr",
+            sm: "1fr 1fr 1fr 1fr",
+          },
           textAlign: "center",
         }}
       >
         <Box>
           <Typography sx={categoryTitle}>Address</Typography>
-          <Typography color="#797c81">{data.address}</Typography>
+          <Typography>{data.address}</Typography>
         </Box>
         <Box>
           <Typography sx={categoryTitle}>Service</Typography>
-          <Typography color="#797c81">{data.serviceOfActivity}</Typography>
+          <Typography>{data.serviceOfActivity}</Typography>
         </Box>
         <Box>
           <Typography sx={categoryTitle}>Number of employees</Typography>
-          <Typography color="#797c81">{data.numberOfEmployees}</Typography>
+          <Typography>{data.numberOfEmployees}</Typography>
         </Box>
         <Box>
           <Typography sx={categoryTitle}>Type</Typography>
-          <Typography color="#797c81">{data.type}</Typography>
+          <Typography>{data.type}</Typography>
         </Box>
       </Box>
       <Typography
         variant="h2"
-        fontSize={30}
-        borderBottom="1px solid grey"
-        mt={5}
-        mb={1}
-        letterSpacing={4}
+        sx={{
+          fontSize: {
+            xs: 25,
+            sm: 30,
+          },
+          mt: 4,
+          mb: 2,
+          letterSpacing: 4,
+          borderBottom: "1px solid black",
+        }}
       >
         ABOUT US
       </Typography>
-      <Typography variant="p" fontSize={20} textAlign="center" maxWidth={600}>
+      <Typography
+        variant="p"
+        sx={{
+          fontSize: {
+            xs: 18,
+            sm: 20,
+          },
+          textAlign: "center",
+          maxWidth: {
+            xs: "100%",
+            sm: "600px",
+          },
+        }}
+      >
         {data.description}
       </Typography>
       <IconButton size="large" color="error" sx={{ mt: 5 }} onClick={onClick}>

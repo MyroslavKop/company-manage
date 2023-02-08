@@ -19,9 +19,25 @@ const UserCompanies = () => {
   }, [dispatch]);
 
   return (
-    <Box>
-      <Box sx={{ display: "flex", justifyContent: "space-between", p: 2 }}>
-        <Typography variant="h2" fontSize={30}>
+    <Box sx={{ p: 3 }}>
+      <Box
+        sx={{
+          display: "flex",
+          justifyContent: "space-between",
+          p: 2,
+          alignItems: "center",
+          gap: 5,
+        }}
+      >
+        <Typography
+          variant="h2"
+          sx={{
+            fontSize: {
+              xs: 25,
+              sm: 30,
+            },
+          }}
+        >
           List of your companies
         </Typography>
         <LinkButton router="/create-company">Create company</LinkButton>

@@ -18,6 +18,7 @@ const LinkButton = ({
   return (
     <Button
       sx={{
+        textAlign: "center",
         backgroundColor: { backgroundColor },
         color: { color },
         width: { width },

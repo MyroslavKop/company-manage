@@ -29,7 +29,7 @@ const UserProfile = () => {
   }
 
   return (
-    <Box sx={{ p: 2 }}>
+    <Box sx={{ p: 3 }}>
       {!edit && (
         <Button
           onClick={openEdit}

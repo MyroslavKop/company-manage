@@ -7,21 +7,31 @@ const User = ({ data, title }) => {
   return (
     <Box>
       <Typography
-        textAlign="center"
         fontSize={40}
-        fontWeight="bold"
-        mt={2}
-        mb={10}
         variant="h1"
+        sx={{
+          mb: {
+            xs: 3,
+            md: 10,
+          },
+          mt: {
+            xs: 4,
+            sm: 2,
+          },
+          textAlign: "center",
+        }}
       >
         {title}
       </Typography>
       <Box
         sx={{
           display: "flex",
+          flexDirection: {
+            xs: "column",
+            md: "row",
+          },
           justifyContent: "space-evenly",
-          padding: "0 80px 80px",
-          gap: 10,
+          gap: 2,
         }}
       >
         <Box
@@ -48,58 +58,75 @@ const User = ({ data, title }) => {
         </Box>
         <Box>
           <Typography
-            letterSpacing={5}
             variant="h2"
-            fontSize={30}
-            textAlign="center"
-            borderBottom="1px solid gray"
+            sx={{
+              fontSize: {
+                xs: 25,
+                sm: 30,
+              },
+              mt: 2,
+              mb: 2,
+              letterSpacing: 4,
+              borderBottom: "1px solid black",
+              textAlign: "center",
+            }}
           >
             INFORMATION
           </Typography>
-          <Box sx={{ display: "flex", gap: "60px", pt: 3 }}>
+          <Box
+            sx={{
+              display: "flex",
+              gap: {
+                xs: "30px",
+                sm: "60px",
+              },
+              flexWrap: "wrap",
+              alignItems: "center",
+              pt: 2,
+              justifyContent: {
+                xs: "flex-start",
+                sm: "center",
+              },
+            }}
+          >
             <Box sx={{ display: "flex", flexDirection: "column" }}>
               <Typography variant="h3" fontWeight="bold" fontSize={20}>
                 Email
               </Typography>
-              <Typography variant="p" color="#797c81">
-                {data.email}
-              </Typography>
+              <Typography variant="p">{data.email}</Typography>
             </Box>
             <Box>
               <Typography variant="h3" fontWeight="bold" fontSize={20}>
                 Phone
               </Typography>
-              <Typography variant="p" color="#797c81">
-                {data.phoneNumber}
-              </Typography>
+              <Typography variant="p">{data.phoneNumber}</Typography>
             </Box>
             <Box>
               <Typography variant="h3" fontWeight="bold" fontSize={20}>
                 Nickname
               </Typography>
-              <Typography variant="p" color="#797c81">
-                {data.nickName}
-              </Typography>
+              <Typography variant="p">{data.nickName}</Typography>
             </Box>
           </Box>
           <Typography
-            letterSpacing={5}
             variant="h2"
-            fontSize={30}
-            textAlign="center"
-            borderBottom="1px solid gray"
-            mt={10}
+            sx={{
+              fontSize: {
+                xs: 25,
+                sm: 30,
+              },
+              mt: 4,
+              mb: 2,
+              letterSpacing: 4,
+              borderBottom: "1px solid black",
+              textAlign: "center",
+            }}
           >
             ABOUT ME
           </Typography>
-          <Box sx={{ pt: 3 }}>
-            <Typography variant="h3" fontWeight="bold" fontSize={20}>
-              Description
-            </Typography>
-            <Typography variant="p" fontSize={18}>
-              {data.description}
-            </Typography>
-          </Box>
+          <Typography variant="p" fontSize={18}>
+            {data.description}
+          </Typography>
         </Box>
       </Box>
     </Box>

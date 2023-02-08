@@ -10,10 +10,24 @@ const FormPageContainer = ({ children, title }) => {
         justifyContent: "center",
         alignItems: "center",
         flexDirection: "column",
-        mt: "60px",
+        mt: {
+          xs: "30px",
+          sm: "60px",
+        },
+        padding: "20px",
       }}
     >
-      <Typography variant="h1" fontSize="40px" mb={3}>
+      <Typography
+        variant="h1"
+        sx={{
+          fontSize: {
+            xs: "30px",
+            sm: "40px",
+          },
+          mb: 3,
+          textAlign: "center",
+        }}
+      >
         {title}
       </Typography>
       {children}

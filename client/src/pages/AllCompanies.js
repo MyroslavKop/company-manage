@@ -17,7 +17,7 @@ const AllCompanies = () => {
   }, [dispatch]);
 
   return (
-    <Box>
+    <Box sx={{ p: 3 }}>
       <Box sx={{ display: "flex", justifyContent: "space-between", p: 2 }}>
         <Typography variant="h2" fontSize={30}>
           List of all companies

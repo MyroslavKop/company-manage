@@ -40,13 +40,13 @@ const CompanyProfile = () => {
 
   return (
     <Box sx={{ p: 2 }}>
-      <Box sx={{ display: "flex", justifyContent: "space-between" }}>
+      <Box sx={{ display: "flex", justifyContent: "space-between", gap: 3 }}>
         <LinkButton
           padding="10px"
           onClick={goBack}
           icon={<KeyboardBackspaceIcon />}
         >
-          Back to the list
+          Back
         </LinkButton>
         {!edit && (
           <Button
@@ -55,7 +55,7 @@ const CompanyProfile = () => {
             size="large"
             endIcon={<EditIcon />}
           >
-            Edit company
+            Edit
           </Button>
         )}
       </Box>
